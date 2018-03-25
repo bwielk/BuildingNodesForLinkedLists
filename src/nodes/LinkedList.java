@@ -1,17 +1,16 @@
 package nodes;
 
 public class LinkedList implements Listable {
-	
+
 	private ListItem root = null;
-	
+
 	public LinkedList(ListItem item){
 		this.root = item;
 	}
 
 	@Override
-	public ListItem getRoute() {
-		// TODO Auto-generated method stub
-		return null;
+	public ListItem getRoot() {
+		return root;
 	}
 
 	@Override
@@ -31,16 +30,16 @@ public class LinkedList implements Listable {
 					return true;
 				}
 			}else if(comparison > 0){
-					if(currentItem.previous() != null){
-						currentItem.setNext(item);
-						item.setPrevious(currentItem.previous());
-						item.setNext(currentItem.setPrevious(item));
-					}else{
-						item.setNext(this.root);
-						this.root.setPrevious(item);
-						this.root = item;
-					}
-					return true;
+				if(currentItem.previous() != null){
+					currentItem.setNext(item);
+					item.setPrevious(currentItem.previous());
+					item.setNext(currentItem.setPrevious(item));
+				}else{
+					item.setNext(this.root);
+					this.root.setPrevious(item);
+					this.root = item;
+				}
+				return true;
 			}else{
 				return false;
 			}
@@ -50,15 +49,20 @@ public class LinkedList implements Listable {
 
 	@Override
 	public boolean removeItem(ListItem item) {
-		// TODO Auto-generated method stub
-		return false;
+		if(item != null){
+			ListItem currentItem = this.r
+		}
 	}
 
 	@Override
 	public void traverse(ListItem root) {
-		// TODO Auto-generated method stub
-		
+		if(root == null){
+			System.out.println("The list is empty");
+		}else{
+			while(root != null){
+				System.out.println(root.getValue());
+				root = root.next();
+			}
+		}
 	}
-	
-	
 }
