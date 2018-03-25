@@ -12,11 +12,12 @@ public class LinkedList implements Listable {
 	public ListItem getRoot() {
 		return root;
 	}
-
+	
 	@Override
 	public boolean addItem(ListItem item) {
 		if(this.root == null){
 			this.root = item;
+			return true;
 		}
 		ListItem currentItem = this.root;
 		while(currentItem != null){
@@ -31,9 +32,10 @@ public class LinkedList implements Listable {
 				}
 			}else if(comparison > 0){
 				if(currentItem.previous() != null){
-					currentItem.setNext(item);
+					currentItem.previous().setNext(item);
 					item.setPrevious(currentItem.previous());
-					item.setNext(currentItem.setPrevious(item));
+					item.setNext(currentItem);
+					currentItem.setPrevious(item);
 				}else{
 					item.setNext(this.root);
 					this.root.setPrevious(item);
@@ -47,11 +49,10 @@ public class LinkedList implements Listable {
 		return false;
 	}
 
+	
 	@Override
 	public boolean removeItem(ListItem item) {
-		if(item != null){
-			ListItem currentItem = this.r
-		}
+		return true;
 	}
 
 	@Override

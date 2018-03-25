@@ -14,5 +14,12 @@ public class Main {
 		
 		list.traverse(list.getRoot());
 	}
-
 }
+
+
+
+
+
+
+
+
