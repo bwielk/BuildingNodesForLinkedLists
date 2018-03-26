@@ -12,7 +12,7 @@ public class LinkedList implements Listable {
 	public ListItem getRoot() {
 		return root;
 	}
-	
+
 	@Override
 	public boolean addItem(ListItem item) {
 		if(this.root == null){
@@ -49,10 +49,30 @@ public class LinkedList implements Listable {
 		return false;
 	}
 
-	
+
 	@Override
 	public boolean removeItem(ListItem item) {
-		return true;
+		ListItem currentItem = this.root;
+		while(currentItem != null){
+			int comparison = currentItem.compareTo(item);
+			if(comparison == 0){
+				if(currentItem == this.root){
+					this.root = currentItem.next();
+				}else{
+					currentItem.previous().setNext(currentItem.next());
+					if(currentItem.next() != null){
+						currentItem.next().setPrevious(currentItem.previous());
+					}
+				}
+				return true;
+			}else if(comparison < 0){
+				currentItem = currentItem.next();
+			}else{
+				//Item that is greater than the one to be deleted
+				return false;
+			}
+		}
+		return false;
 	}
 
 	@Override

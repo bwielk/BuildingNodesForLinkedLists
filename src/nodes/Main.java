@@ -7,19 +7,23 @@ public class Main {
 		nodes.LinkedList list = new nodes.LinkedList(null);
 		list.traverse(list.getRoot());
 		
+		System.out.println("////////////////////Attempt no 1");
 		String[] words = data.split(" ");
 		for(String word : words){
 			list.addItem(new Node(word));
 		}
 		
+		System.out.println("////////////////////Attempt no 2");
+		list.traverse(list.getRoot());
+		list.removeItem(new Node("Sasha"));
+		list.traverse(list.getRoot());
+		
+		System.out.println("////////////////////Attempt no 3");
+		list.addItem(new Node("Omahyra"));
+		list.addItem(new Node("Eugenia"));
+		list.addItem(new Node("Daria"));
+		list.removeItem(new Node("Naomi"));
 		list.traverse(list.getRoot());
 	}
 }
-
-
-
-
-
-
-
 
