@@ -24,6 +24,9 @@ public class Main {
 		list.addItem(new Node("Daria"));
 		list.removeItem(new Node("Naomi"));
 		list.traverse(list.getRoot());
+		
+		System.out.println("////////////////////Attempt no 4");
+		SearchTree tree = new SearchTree(null);
 	}
 }
 
