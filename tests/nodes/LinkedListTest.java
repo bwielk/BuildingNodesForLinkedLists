@@ -34,7 +34,7 @@ public class LinkedListTest {
 	}
 	
 	@Test
-	public void listWithoutNodesCreatesRootAndReferencesToPreviousAndNextItems(){
+	public void listWithoutNodesCreatesRootAndReferencesToPreviousAndNextItemsAfterAddItemPart1(){
 		assertEquals(true, list.addItem(item1));
 		assertEquals(true, list.addItem(item2));
 		assertEquals("Anais", list.getRoot().getValue());
@@ -45,5 +45,26 @@ public class LinkedListTest {
 	}
 	
 	@Test
-	public void 
+	public void listWithoutNodesCreatesRootAndReferencesToPreviousAndNextItemsAfterAddPart2(){
+		assertNull(null, list.getRoot());
+		assertEquals(true, list.addItem(item2));
+		assertEquals("Naomi", list.getRoot().getValue());
+		assertEquals(true, list.addItem(item3));
+		assertEquals(true, list.addItem(item1));
+		assertEquals("Julia", list.getRoot().next().getValue());
+		assertEquals(null, list.getRoot().previous());
+		assertNotEquals("Anais", list.getRoot().next().next().getValue());
+	}
+	
+	@Test
+	public void listOfNodesGetsAlphabaeticallySortedOnceItemsAreAdded(){
+		assertNull(null, list.getRoot());
+		assertEquals(true, list.addItem(item2));
+		assertNull(list.getRoot().previous());
+		assertNull(list.getRoot().next());
+		assertEquals(true, list.addItem(item3));
+		assertEquals("Julia", list.getRoot().getValue());
+		assertEquals("Naomi", list.getRoot().next().getValue());
+		assertEquals("Julia", list.getRoot().next().previous().getValue());
+	}
 }
